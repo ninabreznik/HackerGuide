@@ -1809,15 +1809,15 @@ var minixhr = require('minixhr')
 /*------------------------------------------
                 VARIABLES
 -------------------------------------------*/
+var STATE = 'hideCafes'
 /*------------------------------------------
                 DATA
 -------------------------------------------*/
 minixhr ('https://gist.githubusercontent.com/maxogden/74476ae567142d96078c/raw/04731d27f88d3eec386e5220133d63c1f88b06a8/catcafes.geojson', startPage)
 
-function startPage(data,state) {
-  var state = 'hideCafes'
+function startPage(data) {
   var data = JSON.parse(data)
-  var html = template(data,state)
+  var html = template(data)
   document.body.appendChild(html)
 }
 /*------------------------------------------
@@ -1834,19 +1834,18 @@ function startPage(data,state) {
   /*------------------------------------------
                 HTML
   -------------------------------------------*/
-  function template (data,state) {
+  function template (data) {
     return yo`
     		<div>
           <div class='${css.title}'>Taipei for hackers</div>
           <div class='catCafes'>
-            <div class='${css.cafesTitle}' onclick=${_=>changeState(data,state)}>CAT CAFES</div>
+            <div class='hide' onclick=${_=>changeState(data)}>CAT CAFES</div>
             <div class='list'></div>
           </div>
         </div>
     `
 	}
 
-startPage()
 /*------------------------------------------
                 FUNCTIONS
 -------------------------------------------*/
@@ -1860,10 +1859,10 @@ function listCafes (data) {
   })
 }
 
-function showCafes (data,state) {
+function showCafes (data) {
   var newEl = yo`
     <div class='catCafes'>
-      <div class='${css.cafesTitle}' onclick=${_=>changeState(data,state)}>CAT CAFES</div>
+      <div class='show' onclick=${_=>changeState(data)}>CAT CAFES</div>
       <div class='list'>${listCafes(data)}</div>
     </div>
   `
@@ -1871,11 +1870,10 @@ function showCafes (data,state) {
   yo.update(el,newEl)
 }
 
-function hideCafes (data,state) {
-  //var state = state
+function hideCafes (data) {
   var newEl = yo`
     <div class='catCafes'>
-      <div class='${css.cafesTitle}' onclick=${_=>changeState(data,state)}>CAT CAFES</div>
+      <div class='hide' onclick=${_=>changeState(data)}>CAT CAFES</div>
       <div class='list'></div>
     </div>
   `
@@ -1883,34 +1881,27 @@ function hideCafes (data,state) {
   yo.update(el,newEl)
 }
 
-function next(state,states) {
-  if(state==='showCafes') {
-    console.log('Changing from show to hide')
-    state = 'hideCafes'
+function next() {
+  if(STATE==='showCafes') {
+    STATE = 'hideCafes'
   } else {
-    console.log('Before change: ' + state)
-    console.log('Changing from hide to show')
-    state = 'showCafes'
-    console.log('After change: ' + state)
+    STATE = 'showCafes'
   }
-  return state
 }
 
-function changeState (data,state) {
-  console.log("OLD STATE: " + state)
+function changeState (data) {
   var states = {
     'showCafes': function () {
-      hideCafes(data,state)
+      hideCafes(data)
     },
     'hideCafes': function () {
-      showCafes(data,state)
+      showCafes(data)
     }
   }
-  if(state) {
-    states[state]()
-    var state = next(state,states)
+  if(STATE) {
+    states[STATE]()
+    next()
   }
-  console.log("NEW STATE: " + state)
 }
 
 },{"csjs-inject":5,"minixhr":24,"yo-yo":28}]},{},[30]);
