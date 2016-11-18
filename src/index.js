@@ -4,7 +4,7 @@
 var yo = require('yo-yo')
 var csjs = require('csjs-inject')
 var minixhr = require('minixhr')
-
+var router = require('_router')
 /*------------------------------------------
                 VARIABLES
 -------------------------------------------*/
@@ -12,7 +12,7 @@ var STATE = 'hideCafes'
 /*------------------------------------------
                 DATA
 -------------------------------------------*/
-minixhr ('https://gist.githubusercontent.com/maxogden/74476ae567142d96078c/raw/04731d27f88d3eec386e5220133d63c1f88b06a8/catcafes.geojson', startPage)
+minixhr ('https://gist.githubusercontent.com/ninabreznik/15717baef0ad4a70a119f90ae0141fe0/raw/d09a44a7bbcb09c959a5f3d749bfa652300bf4d8/gistfile1.txt', startPage)
 
 function startPage(data) {
   var data = JSON.parse(data)
@@ -26,9 +26,6 @@ function startPage(data) {
     .title {
       color: red;
     }
-    .cafesTitle{
-      color: green
-    }
   `
   /*------------------------------------------
                 HTML
@@ -36,69 +33,81 @@ function startPage(data) {
   function template (data) {
     return yo`
     		<div>
-          <div class='${css.title}'>Taipei for hackers</div>
-          <div class='catCafes'>
-            <div class='hide' onclick=${_=>changeState(data)}>CAT CAFES</div>
-            <div class='list'></div>
+          <div class='${css.title}'>Taipei hacker guide</div>
+          <div class='cafe'>
+            <div class='hide' onclick=${_=>routes('/showCafe')(data)}>CAFE</div>
+            <div class='show'></div>
+          </div>
+          <div class='visa'>
+            <div class='hide' onclick=${_=>routes('/showVisa')(data)}>VISA</div>
+            <div class='show'></div>
           </div>
         </div>
+
     `
 	}
 
+
+
 /*------------------------------------------
-                FUNCTIONS
+                ROUTES
 -------------------------------------------*/
 
-function listCafes (data) {
-  return data.features.map(function(x){
-    var cafes = x.properties
-    return yo`
-    <div class='cats'><a href='${cafes.link}'>${cafes.name}</a></div>
-    `
-  })
-}
 
-function showCafes (data) {
-  var newEl = yo`
-    <div class='catCafes'>
-      <div class='show' onclick=${_=>changeState(data)}>CAT CAFES</div>
-      <div class='list'>${listCafes(data)}</div>
-    </div>
-  `
-  var el = document.body.querySelector('.catCafes')
-  yo.update(el,newEl)
-}
+var routes = router()
 
-function hideCafes (data) {
-  var newEl = yo`
-    <div class='catCafes'>
-      <div class='hide' onclick=${_=>changeState(data)}>CAT CAFES</div>
-      <div class='list'></div>
-    </div>
-  `
-  var el = document.body.querySelector('.catCafes')
-  yo.update(el,newEl)
-}
+var showCafe = showHideComponent('cafe','/showCafe', '/hideCafe')
+var hideCafe = showHideComponent('cafe','/showCafe', '/hideCafe')
+var showVisa = showHideComponent('visa','/showVisa', '/hideVisa')
+var hideVisa = showHideComponent('visa','/showVisa', '/hideVisa')
 
-function next() {
-  if(STATE==='showCafes') {
-    STATE = 'hideCafes'
-  } else {
-    STATE = 'showCafes'
-  }
-}
+routes('/showCafe', showCafe.show)
+routes('/hideCafe', hideCafe.hide)
+routes('/showVisa', showVisa.show)
+routes('/hideVisa', hideVisa.hide)
 
-function changeState (data) {
-  var states = {
-    'showCafes': function () {
-      hideCafes(data)
+//routes('/showCafes')
+
+/*------------------------------------------
+                 COMPONENTS
+-------------------------------------------*/
+function showHideComponent (title,routeShow,routeHide) {
+  var showHide = {
+    list: function list (data) {
+      console.log({data})
+      console.log({title})
+      var array = data[title]
+      console.log({array})
+      return array.map(function(x){
+        return yo`
+        <div class='item'><a href='${x.link}'>${x.name}</a></div>
+        `
+      })
     },
-    'hideCafes': function () {
-      showCafes(data)
+    show: function show (data) {
+      console.log('function show, route  ' + routeShow)
+      console.log('function show, route  ' + routeHide)
+      var newEl = yo`
+        <div class='${title}'>
+          <div class='hide' onclick=${_=>routes(routeHide)(data)}>${title}</div>
+          <div class='show'>${showHide.list(data)}</div>
+        </div>
+      `
+      var el = document.body.querySelector(`.${title}`)
+      yo.update(el,newEl)
+    },
+    hide: function hide (data) {
+      console.log('function hide, route  ' + routeShow)
+      console.log('function hide, route  ' + routeHide)
+      var newEl = yo`
+        <div class='${title}'>
+          <div class='hide' onclick=${_=>routes(routeShow)(data)}>${title}</div>
+          <div class='show'></div>
+        </div>
+      `
+      var el = document.body.querySelector(`.${title}`)
+      yo.update(el,newEl)
     }
   }
-  if(STATE) {
-    states[STATE]()
-    next()
-  }
+  return showHide
 }
