@@ -12,7 +12,7 @@ var STATE = 'hideCafes'
 /*------------------------------------------
                 DATA
 -------------------------------------------*/
-minixhr ('https://gist.githubusercontent.com/ninabreznik/15717baef0ad4a70a119f90ae0141fe0/raw/d09a44a7bbcb09c959a5f3d749bfa652300bf4d8/gistfile1.txt', startPage)
+minixhr ('https://gist.githubusercontent.com/ninabreznik/15717baef0ad4a70a119f90ae0141fe0/raw/6ba1a5a5b2ef5734f2869d0468be6d84da2649cc/gistfile1.txt', startPage)
 
 function startPage(data) {
   var data = JSON.parse(data)
@@ -25,6 +25,23 @@ function startPage(data) {
   var css = csjs`
     .title {
       color: red;
+      text-align: center;
+      font-size: 20px;
+    }
+    .button {
+      width: 90%;
+      margin: 2%;
+      background-color: #4CAF50; /* Green */
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+    }
+    .button:hover {
+      opacity: 0.8;
     }
   `
   /*------------------------------------------
@@ -34,12 +51,32 @@ function startPage(data) {
     return yo`
     		<div>
           <div class='${css.title}'>Taipei hacker guide</div>
-          <div class='cafe'>
-            <div class='hide' onclick=${_=>routes('/showCafe')(data)}>CAFE</div>
+          <div class='VISA'>
+            <div class='hide ${css.button}' onclick=${_=>routes('/showVisa')(data)}>VISA</div>
             <div class='show'></div>
           </div>
-          <div class='visa'>
-            <div class='hide' onclick=${_=>routes('/showVisa')(data)}>VISA</div>
+          <div class='LIVING'>
+            <div class='hide ${css.button}' onclick=${_=>routes('/showLiving')(data)}>LIVING</div>
+            <div class='show'></div>
+          </div>
+          <div class='USEFUL'>
+            <div class='hide ${css.button}' onclick=${_=>routes('/showUseful')(data)}>USEFUL</div>
+            <div class='show'></div>
+          </div>
+          <div class='TRANSPORTATION'>
+            <div class='hide ${css.button}' onclick=${_=>routes('/showTransportation')(data)}>TRANSPORTATION</div>
+            <div class='show'></div>
+          </div>
+          <div class='SPORT'>
+            <div class='hide ${css.button}' onclick=${_=>routes('/showSport')(data)}>SPORT</div>
+            <div class='show'></div>
+          </div>
+          <div class='VEGAN'>
+            <div class='hide ${css.button}' onclick=${_=>routes('/showVegan')(data)}>VEGAN</div>
+            <div class='show'></div>
+          </div>
+          <div class='CAFÉS'>
+            <div class='hide ${css.button}' onclick=${_=>routes('/showCafes')(data)}>CAFÉS</div>
             <div class='show'></div>
           </div>
         </div>
@@ -52,21 +89,36 @@ function startPage(data) {
 /*------------------------------------------
                 ROUTES
 -------------------------------------------*/
-
-
 var routes = router()
 
-var showCafe = showHideComponent('cafe','/showCafe', '/hideCafe')
-var hideCafe = showHideComponent('cafe','/showCafe', '/hideCafe')
-var showVisa = showHideComponent('visa','/showVisa', '/hideVisa')
-var hideVisa = showHideComponent('visa','/showVisa', '/hideVisa')
+var cafes = showHideComponent('CAFÉS','/showCafes', '/hideCafes')
+routes('/showCafes', cafes.show)
+routes('/hideCafes', cafes.hide)
 
-routes('/showCafe', showCafe.show)
-routes('/hideCafe', hideCafe.hide)
-routes('/showVisa', showVisa.show)
-routes('/hideVisa', hideVisa.hide)
+var visa = showHideComponent('VISA','/showVisa', '/hideVisa')
+routes('/showVisa', visa.show)
+routes('/hideVisa', visa.hide)
 
-//routes('/showCafes')
+var living = showHideComponent('LIVING','/showLiving', '/hideLiving')
+routes('/showLiving', living.show)
+routes('/hideLiving', living.hide)
+
+var useful = showHideComponent('USEFUL','/showUseful', '/hideUseful')
+routes('/showUseful', useful.show)
+routes('/hideUseful', useful.hide)
+
+var transportation = showHideComponent('TRANSPORTATION','/showTransportation', '/hideTransportation')
+routes('/showTransportation', transportation.show)
+routes('/hideTransportation', transportation.hide)
+
+var sport = showHideComponent('SPORT','/showSport', '/hideSport')
+routes('/showSport', sport.show)
+routes('/hideSport', sport.hide)
+
+var vegan = showHideComponent('VEGAN','/showVegan', '/hideVegan')
+routes('/showVegan', vegan.show)
+routes('/hideVegan', vegan.hide)
+
 
 /*------------------------------------------
                  COMPONENTS
@@ -89,7 +141,7 @@ function showHideComponent (title,routeShow,routeHide) {
       console.log('function show, route  ' + routeHide)
       var newEl = yo`
         <div class='${title}'>
-          <div class='hide' onclick=${_=>routes(routeHide)(data)}>${title}</div>
+          <div class='hide ${css.button}' onclick=${_=>routes(routeHide)(data)}>${title}</div>
           <div class='show'>${showHide.list(data)}</div>
         </div>
       `
@@ -101,7 +153,7 @@ function showHideComponent (title,routeShow,routeHide) {
       console.log('function hide, route  ' + routeHide)
       var newEl = yo`
         <div class='${title}'>
-          <div class='hide' onclick=${_=>routes(routeShow)(data)}>${title}</div>
+          <div class='hide ${css.button}' onclick=${_=>routes(routeShow)(data)}>${title}</div>
           <div class='show'></div>
         </div>
       `
