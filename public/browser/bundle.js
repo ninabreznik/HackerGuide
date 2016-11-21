@@ -1824,21 +1824,27 @@ function startPage(data) {
                 CSS
 -------------------------------------------*/
   var css = csjs`
-    .title {
-      color: red;
-      text-align: center;
-      font-size: 20px;
+    .wrapper {
+      display: flex;
+      flex-wrap: wrap;
     }
-    .button {
-      width: 90%;
+    .title {
       margin: 2%;
-      background-color: #4CAF50; /* Green */
+      background-color: pink;
+      text-align: center;
       border: none;
       color: white;
       padding: 15px 32px;
       text-align: center;
-      text-decoration: none;
-      display: inline-block;
+      font-size: 20px;
+    }
+    .button {
+      margin: 2%;
+      background-color: green;
+      border: none;
+      color: white;
+      padding: 40px 32px;
+      text-align: center;
       font-size: 16px;
     }
     .button:hover {
@@ -1850,7 +1856,7 @@ function startPage(data) {
   -------------------------------------------*/
   function template (data) {
     return yo`
-    		<div>
+    		<div class='${css.wrapper}'>
           <div class='${css.title}'>Taipei hacker guide</div>
           <div class='VISA'>
             <div class='hide ${css.button}' onclick=${_=>routes('/showVisa')(data)}>VISA</div>
@@ -1964,6 +1970,50 @@ function showHideComponent (title,routeShow,routeHide) {
   }
   return showHide
 }
+
+/*------------------------------------------
+                MENU BUTTON COMPONENT
+-------------------------------------------*/
+
+// function menuButtonComponent (name,routeShow) {
+//
+//   var css = csjs`
+//     .title {
+//       background-color: pink;
+//       text-align: center;
+//       border: none;
+//       color: white;
+//       padding: 15px 32px;
+//       text-align: center;
+//       font-size: 20px;
+//     }
+//     .button {
+//       //margin: 2%;
+//       background-color: ${color};
+//       border: none;
+//       color: white;
+//       padding: 40px 32px;
+//       text-align: center;
+//       font-size: 16px;
+//     }
+//     .button:hover {
+//       opacity: 0.8;
+//     }
+//   `
+//
+//   function template (name,routeShow) {
+//     return yo`
+//       <div class='${title}'>
+//         <div class='hide ${css.button}' onclick=${_=>routes(`/${routeShow}`)(data)}>${title}</div>
+//         <div class='show'></div>
+//       </div>
+//     `
+//   }
+//
+//   var html = template()
+//   return html
+//
+// }
 
 },{"_router":31,"csjs-inject":5,"minixhr":24,"yo-yo":28}],31:[function(require,module,exports){
 module.exports = function router () {
