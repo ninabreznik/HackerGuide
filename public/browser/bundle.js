@@ -1810,10 +1810,34 @@ var router = require('_router')
                 VARIABLES
 -------------------------------------------*/
 var STATE = 'hideCafes'
+var FONT        = 'Ubuntu, sans-serif'
+
+var imageLogo            = 'https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTz3I-CAJuakuqXqLhrInVkmRgFAdGCh1JkpV0OXOe00dQx9aJcvQ'
+var imageVisa            = 'https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcR0IkbxAk0B2tzF35ga-xttJR2216d2Od2afMpa3MVHXSzWaXq3BQ'
+var imageLiving          = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQA6Jc-nTzop23Monw2XmN47QPf4pcFHgYcgJQ2540Tjfyx8kvOXw'
+var imagePower           = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTn7BzqdWG4BEwPFe4LX-Luxepf8xc6xg4bnGaWWmX5up4yIjSmg'
+var imageSIM             = 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcR2F0fuUU0R5Uq7wH0agbTupgzH1D7eDLKG0piZG1d8x80NW9sX'
+var imageTransportation  = 'https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQiqGQQsQhL1WtrnnViGOhMkPjs_BXPt_zuk5fKCA8iNNxWIUIs'
+var imageMeetups         = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRaftx8XMSgseXMr-el-Rga4vErBAfq4tv0tRYYmusSAyCARHTDtg'
+var imageEasyCard        = 'https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTuWz4bRiczvIiQ5ATRG0Pg3aatwH2z3CL_IInXY_jPFDgkYju1eQ'
+var imageSport           = 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQiXFdxZhYfQAWnRU1s3_3BUPm1OiHfRdimn4V82BVF10ubpWFPOw'
+var imageVegan           = 'https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRNbPzJqw44G1BCFOm8h6HxqqrBDB3yfc4iiw6I6XTUeUikOXZv'
+var imageCafes           = 'https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRGehZ5hGbam4rTRVqmwe2t9WY1bJGW4hKSyR4cE9o9ZQTdHrff2A'
+/*------------------------------------------
+                FONT
+-------------------------------------------*/
+var links = [
+  'https://fonts.googleapis.com/css?family=Ubuntu',
+  'https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css'
+]
+var font = yo`<link href=${links[0]} rel='stylesheet' type='text/css'>`
+var fontAwesome = yo`<link href=${links[1]} rel='stylesheet' type='text/css'>`
+document.head.appendChild(font)
+document.head.appendChild(fontAwesome)
 /*------------------------------------------
                 DATA
 -------------------------------------------*/
-minixhr ('https://gist.githubusercontent.com/ninabreznik/15717baef0ad4a70a119f90ae0141fe0/raw/6ba1a5a5b2ef5734f2869d0468be6d84da2649cc/gistfile1.txt', startPage)
+minixhr ('https://raw.githubusercontent.com/ninabreznik/taipeiApp/master/src/data.json', startPage)
 
 function startPage(data) {
   var data = JSON.parse(data)
@@ -1827,27 +1851,34 @@ function startPage(data) {
     .wrapper {
       display: flex;
       flex-wrap: wrap;
+      font-family: ${FONT};
     }
-    .title {
-      margin: 2%;
-      background-color: pink;
-      text-align: center;
+    .logo {
+      background-image: url(${imageLogo});
+      text-transform: uppercase;
+    }
+    .button, .logo {
+      background-image: url(${imageLogo});
+      display: flex;
+      align-items: center;
+      justify-content: center;
       border: none;
       color: white;
-      padding: 15px 32px;
+      padding: 5px;
+      width: 200px;
+      height: 150px;
       text-align: center;
-      font-size: 20px;
+      font-size: 25px;
+      text-decoration: none;
     }
-    .button {
-      margin: 2%;
-      background-color: green;
-      border: none;
+    .button:hover, .logo:hover {
+      opacity: 0.8;
+    }
+    .item a {
+      text-decoration: none;
       color: white;
-      padding: 40px 32px;
-      text-align: center;
-      font-size: 16px;
     }
-    .button:hover {
+    .item a:hover{
       opacity: 0.8;
     }
   `
@@ -1857,37 +1888,18 @@ function startPage(data) {
   function template (data) {
     return yo`
     		<div class='${css.wrapper}'>
-          <div class='${css.title}'>Taipei hacker guide</div>
-          <div class='VISA'>
-            <div class='hide ${css.button}' onclick=${_=>routes('/showVisa')(data)}>VISA</div>
-            <div class='show'></div>
-          </div>
-          <div class='LIVING'>
-            <div class='hide ${css.button}' onclick=${_=>routes('/showLiving')(data)}>LIVING</div>
-            <div class='show'></div>
-          </div>
-          <div class='USEFUL'>
-            <div class='hide ${css.button}' onclick=${_=>routes('/showUseful')(data)}>USEFUL</div>
-            <div class='show'></div>
-          </div>
-          <div class='TRANSPORTATION'>
-            <div class='hide ${css.button}' onclick=${_=>routes('/showTransportation')(data)}>TRANSPORTATION</div>
-            <div class='show'></div>
-          </div>
-          <div class='SPORT'>
-            <div class='hide ${css.button}' onclick=${_=>routes('/showSport')(data)}>SPORT</div>
-            <div class='show'></div>
-          </div>
-          <div class='VEGAN'>
-            <div class='hide ${css.button}' onclick=${_=>routes('/showVegan')(data)}>VEGAN</div>
-            <div class='show'></div>
-          </div>
-          <div class='CAFÉS'>
-            <div class='hide ${css.button}' onclick=${_=>routes('/showCafes')(data)}>CAFÉS</div>
-            <div class='show'></div>
-          </div>
+          <div class='${css.logo}'>Taipei guide for hackers</div>
+          ${menuButtonComponent (data,'VISA','showVisa',imageVisa)}
+          ${menuButtonComponent (data,'LIVING','showLiving',imageLiving)}
+          ${menuButtonComponent (data,'TRANSPORTATION','showTransportation',imageTransportation)}
+          ${menuButtonComponent (data,'POWER','showPower',imagePower)}
+          ${menuButtonComponent (data,'MEETUPS','showMeetupd',imageMeetups)}
+          ${menuButtonComponent (data,'SPORT','showSport',imageSport)}
+          ${menuButtonComponent (data,'SIM','showSIM',imageSIM)}
+          ${menuButtonComponent (data,'EASYCARD','showEasyCard',imageEasyCard)}
+          ${menuButtonComponent (data,'VEGAN','showVegan',imageVegan)}
+          ${menuButtonComponent (data,'CAFÉS','showCafes',imageCafes)}
         </div>
-
     `
 	}
 
@@ -1910,9 +1922,21 @@ var living = showHideComponent('LIVING','/showLiving', '/hideLiving')
 routes('/showLiving', living.show)
 routes('/hideLiving', living.hide)
 
-var useful = showHideComponent('USEFUL','/showUseful', '/hideUseful')
-routes('/showUseful', useful.show)
-routes('/hideUseful', useful.hide)
+var power = showHideComponent('POWER','/showPower', '/hidePower')
+routes('/showPower', power.show)
+routes('/hidePower', power.hide)
+
+var sim = showHideComponent('SIM','/showSIM', '/hideSIM')
+routes('/showSIM', sim.show)
+routes('/hideSIM', sim.hide)
+
+var meetups = showHideComponent('MEETUPS','/showMeetups', '/hideMeetups')
+routes('/showMeetups', meetups.show)
+routes('/hideMeetups', meetups.hide)
+
+var easyCard = showHideComponent('EASYCARD','/showEasyCard', '/hideEasyCard')
+routes('/showEasyCard', easyCard.show)
+routes('/hideEasyCard', easyCard.hide)
 
 var transportation = showHideComponent('TRANSPORTATION','/showTransportation', '/hideTransportation')
 routes('/showTransportation', transportation.show)
@@ -1933,35 +1957,31 @@ routes('/hideVegan', vegan.hide)
 function showHideComponent (title,routeShow,routeHide) {
   var showHide = {
     list: function list (data) {
-      console.log({data})
-      console.log({title})
       var array = data[title]
-      console.log({array})
       return array.map(function(x){
         return yo`
-        <div class='item'><a href='${x.link}'>${x.name}</a></div>
+        <div class='item ${css.item}'><a href='${x.link}'>${x.name}</a></div>
         `
       })
     },
     show: function show (data) {
-      console.log('function show, route  ' + routeShow)
-      console.log('function show, route  ' + routeHide)
       var newEl = yo`
-        <div class='${title}'>
-          <div class='hide ${css.button}' onclick=${_=>routes(routeHide)(data)}>${title}</div>
-          <div class='show'>${showHide.list(data)}</div>
-        </div>
+          <div class='${title}'>
+            <div class='hide ${css.button}' onclick=${_=>routes(routeHide)(data)}>
+              <div class='show'>${showHide.list(data)}</div>
+            </div>
+          </div>
       `
       var el = document.body.querySelector(`.${title}`)
       yo.update(el,newEl)
     },
     hide: function hide (data) {
-      console.log('function hide, route  ' + routeShow)
-      console.log('function hide, route  ' + routeHide)
       var newEl = yo`
         <div class='${title}'>
-          <div class='hide ${css.button}' onclick=${_=>routes(routeShow)(data)}>${title}</div>
-          <div class='show'></div>
+          <div class='hide ${css.button}' onclick=${_=>routes(routeShow)(data)}>
+            <div class='${css.title}'>${title}</div>
+            <div class='show'></div>
+          </div>
         </div>
       `
       var el = document.body.querySelector(`.${title}`)
@@ -1975,45 +1995,41 @@ function showHideComponent (title,routeShow,routeHide) {
                 MENU BUTTON COMPONENT
 -------------------------------------------*/
 
-// function menuButtonComponent (name,routeShow) {
-//
-//   var css = csjs`
-//     .title {
-//       background-color: pink;
-//       text-align: center;
-//       border: none;
-//       color: white;
-//       padding: 15px 32px;
-//       text-align: center;
-//       font-size: 20px;
-//     }
-//     .button {
-//       //margin: 2%;
-//       background-color: ${color};
-//       border: none;
-//       color: white;
-//       padding: 40px 32px;
-//       text-align: center;
-//       font-size: 16px;
-//     }
-//     .button:hover {
-//       opacity: 0.8;
-//     }
-//   `
-//
-//   function template (name,routeShow) {
-//     return yo`
-//       <div class='${title}'>
-//         <div class='hide ${css.button}' onclick=${_=>routes(`/${routeShow}`)(data)}>${title}</div>
-//         <div class='show'></div>
-//       </div>
-//     `
-//   }
-//
-//   var html = template()
-//   return html
-//
-// }
+function menuButtonComponent (data,title,route,image) {
+  var css = csjs`
+    .button {
+      font-family: ${FONT};
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-image: url(${image});
+      border: none;
+      color: white;
+      padding: 5px;
+      width: 200px;
+      height: 150px;
+      text-align: center;
+      font-size: 20px;
+    }
+    .button:hover {
+      opacity: 0.8;
+    }
+  `
+
+  function template () {
+    return yo`
+      <div class='${title}'>
+        <div class='hide ${css.button}' onclick=${_=>routes(`/${route}`)(data)}>
+          <div class='${title}'>${title}</div>
+          <div class='show'></div>
+        </div>
+      </div>
+    `
+  }
+
+  var html = template()
+  return html
+}
 
 },{"_router":31,"csjs-inject":5,"minixhr":24,"yo-yo":28}],31:[function(require,module,exports){
 module.exports = function router () {
