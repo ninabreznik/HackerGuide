@@ -1868,18 +1868,30 @@ function startPage(data) {
       width: 200px;
       height: 150px;
       text-align: center;
-      font-size: 25px;
+      font-size: 20px;
       text-decoration: none;
     }
     .button:hover, .logo:hover {
       opacity: 0.8;
     }
+    .item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      padding: 3px;
+    }
     .item a {
       text-decoration: none;
       color: white;
     }
-    .item a:hover{
+    .item a:hover {
       opacity: 0.8;
+    }
+    .icon {
+      font-size: 15px;
+      color: white;
+      margin-right: 2px;
     }
   `
   /*------------------------------------------
@@ -1893,7 +1905,7 @@ function startPage(data) {
           ${menuButtonComponent (data,'LIVING','showLiving',imageLiving)}
           ${menuButtonComponent (data,'TRANSPORTATION','showTransportation',imageTransportation)}
           ${menuButtonComponent (data,'POWER','showPower',imagePower)}
-          ${menuButtonComponent (data,'MEETUPS','showMeetupd',imageMeetups)}
+          ${menuButtonComponent (data,'MEETUPS','showMeetups',imageMeetups)}
           ${menuButtonComponent (data,'SPORT','showSport',imageSport)}
           ${menuButtonComponent (data,'SIM','showSIM',imageSIM)}
           ${menuButtonComponent (data,'EASYCARD','showEasyCard',imageEasyCard)}
@@ -1960,7 +1972,10 @@ function showHideComponent (title,routeShow,routeHide) {
       var array = data[title]
       return array.map(function(x){
         return yo`
-        <div class='item ${css.item}'><a href='${x.link}'>${x.name}</a></div>
+        <div class='item ${css.item}'>
+          <i class="fa fa-circle ${css.icon}" aria-hidden="true"></i>
+          <a href='${x.link}'>${x.name}</a>
+        </div>
         `
       })
     },
