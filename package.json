@@ -9,11 +9,14 @@
     "start": "npm run watch & npm run www",
     "build": "browserify -p [ urify-emitter -l 100 -o public/browser -b public/browser ] --it urify src/index.js > public/browser/bundle.js",
     "open": "opn http://0.0.0.0:5000/ -- 'google chrome'",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "release": "browserify src/index.js -o bundle.js -t [ babelify --presets [ es2015 ] ]"
   },
   "author": "@ninabreznik",
   "license": "MIT",
   "devDependencies": {
+    "babel-preset-es2015": "^6.18.0",
+    "babelify": "^7.3.0",
     "browserify": "^13.1.1",
     "browserify-livereload": "^1.0.8",
     "ecstatic": "^2.1.0",

@@ -9,19 +9,28 @@ var router = require('_router')
                 VARIABLES
 -------------------------------------------*/
 var STATE = 'hideCafes'
-var FONT        = 'Ubuntu, sans-serif'
+var FONT  = 'Ubuntu, sans-serif'
+var WHITISH = '#E6EBE0'
+var YELLOWISH = '#F4F1BB'
+var BLUEISH = '#5CA4A9'
+var GREYISH = '#9BC1BC'
+var REDISH = '#ED6A5A'
+var SHADOW = '#E6EBE0'
 
-var imageLogo            = 'https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTz3I-CAJuakuqXqLhrInVkmRgFAdGCh1JkpV0OXOe00dQx9aJcvQ'
-var imageVisa            = 'https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcR0IkbxAk0B2tzF35ga-xttJR2216d2Od2afMpa3MVHXSzWaXq3BQ'
-var imageLiving          = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQA6Jc-nTzop23Monw2XmN47QPf4pcFHgYcgJQ2540Tjfyx8kvOXw'
-var imagePower           = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTn7BzqdWG4BEwPFe4LX-Luxepf8xc6xg4bnGaWWmX5up4yIjSmg'
-var imageSIM             = 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcR2F0fuUU0R5Uq7wH0agbTupgzH1D7eDLKG0piZG1d8x80NW9sX'
-var imageTransportation  = 'https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQiqGQQsQhL1WtrnnViGOhMkPjs_BXPt_zuk5fKCA8iNNxWIUIs'
-var imageMeetups         = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRaftx8XMSgseXMr-el-Rga4vErBAfq4tv0tRYYmusSAyCARHTDtg'
-var imageEasyCard        = 'https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTuWz4bRiczvIiQ5ATRG0Pg3aatwH2z3CL_IInXY_jPFDgkYju1eQ'
-var imageSport           = 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQiXFdxZhYfQAWnRU1s3_3BUPm1OiHfRdimn4V82BVF10ubpWFPOw'
-var imageVegan           = 'https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRNbPzJqw44G1BCFOm8h6HxqqrBDB3yfc4iiw6I6XTUeUikOXZv'
-var imageCafes           = 'https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRGehZ5hGbam4rTRVqmwe2t9WY1bJGW4hKSyR4cE9o9ZQTdHrff2A'
+/* ---------------------------------------------------------------------------------------
+Credit for cat pictures: @maxogden #catmapper https://github.com/maxogden/cats
+----------------------------------------------------------------------------------------*/
+var imageLogo            = 'https://raw.githubusercontent.com/maxogden/cats/master/catmapper/312041054429712769_291987.jpg'
+var imageVisa            = 'https://raw.githubusercontent.com/maxogden/cats/master/catmapper/139757677862894755_13147478.jpg'
+var imageLiving          = 'https://raw.githubusercontent.com/maxogden/cats/master/catmapper/222843201611284148_13147478.jpg'
+var imagePower           = 'https://raw.githubusercontent.com/maxogden/cats/master/catmapper/229211733215330264_13147478.jpg'
+var imageSIM             = 'https://raw.githubusercontent.com/maxogden/cats/master/catmapper/242919878211058734_13147478.jpg'
+var imageTransportation  = 'https://raw.githubusercontent.com/maxogden/cats/master/catmapper/291176078364801026_197610413.jpg'
+var imageMeetups         = 'https://raw.githubusercontent.com/maxogden/cats/master/cat_photos/fbe98620432f11e19e4a12313813ffc0_7.png'
+var imageEasyCard        = 'https://raw.githubusercontent.com/maxogden/cats/master/cat_photos/12a8d742be7f11e188131231381b5c25_7.png'
+var imageSport           = 'https://raw.githubusercontent.com/maxogden/cats/master/catmapper/221619259085077562_13147478.jpg'
+var imageVegan           = 'https://raw.githubusercontent.com/maxogden/cats/master/cat_photos/e66928da64d311e19e4a12313813ffc0_7.png'
+var imageCafes           = 'https://raw.githubusercontent.com/maxogden/cats/master/catmapper/229738316648856704_13147478.jpg'
 /*------------------------------------------
                 FONT
 -------------------------------------------*/
@@ -48,26 +57,32 @@ function startPage(data) {
 -------------------------------------------*/
   var css = csjs`
     .wrapper {
+      background-color: ${BLUEISH};
       display: flex;
       flex-wrap: wrap;
+      justify-content: center;
       font-family: ${FONT};
     }
     .logo {
-      background-image: url(${imageLogo});
-      text-transform: uppercase;
+      background-color: ${BLUEISH};
+      text-shadow: -1px 0 ${WHITISH}, 0 1px ${WHITISH}, 1px 0 ${WHITISH}, 0 -1px ${WHITISH};
+      font-size: 30px;
+    }
+    .button {
+      font-size: 20px;
+      background-color: ${REDISH};
+      opacity: 0.9;
     }
     .button, .logo {
-      background-image: url(${imageLogo});
       display: flex;
       align-items: center;
       justify-content: center;
-      border: none;
-      color: white;
-      padding: 5px;
-      width: 200px;
-      height: 150px;
+      border: 10px solid ${BLUEISH};
+      color: ${WHITISH};
+      font-weight: bold;
+      width: 275px;
+      height: 275px;
       text-align: center;
-      font-size: 20px;
       text-decoration: none;
     }
     .button:hover, .logo:hover {
@@ -77,20 +92,17 @@ function startPage(data) {
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 16px;
-      padding: 3px;
+      font-size: 15px;
+      letter-spacing: 2px;
+      padding: 7px;
     }
     .item a {
       text-decoration: none;
-      color: white;
+      font-size: 15px;
+      color: ${WHITISH}
     }
     .item a:hover {
-      opacity: 0.8;
-    }
-    .icon {
-      font-size: 15px;
-      color: white;
-      margin-right: 2px;
+      color: ${YELLOWISH}
     }
   `
   /*------------------------------------------
@@ -172,7 +184,6 @@ function showHideComponent (title,routeShow,routeHide) {
       return array.map(function(x){
         return yo`
         <div class='item ${css.item}'>
-          <i class="fa fa-circle ${css.icon}" aria-hidden="true"></i>
           <a href='${x.link}'>${x.name}</a>
         </div>
         `
@@ -181,8 +192,8 @@ function showHideComponent (title,routeShow,routeHide) {
     show: function show (data) {
       var newEl = yo`
           <div class='${title}'>
-            <div class='hide ${css.button}' onclick=${_=>routes(routeHide)(data)}>
-              <div class='show'>${showHide.list(data)}</div>
+            <div class='square ${css.button}' onclick=${_=>routes(routeHide)(data)}>
+              <div class='square'>${showHide.list(data)}</div>
             </div>
           </div>
       `
@@ -192,9 +203,9 @@ function showHideComponent (title,routeShow,routeHide) {
     hide: function hide (data) {
       var newEl = yo`
         <div class='${title}'>
-          <div class='hide ${css.button}' onclick=${_=>routes(routeShow)(data)}>
+          <div class='square ${css.button}' onclick=${_=>routes(routeShow)(data)}>
             <div class='${css.title}'>${title}</div>
-            <div class='show'></div>
+            <div class='square'></div>
           </div>
         </div>
       `
@@ -211,31 +222,37 @@ function showHideComponent (title,routeShow,routeHide) {
 
 function menuButtonComponent (data,title,route,image) {
   var css = csjs`
+    body {
+      margin: 0px;
+    }
     .button {
-      font-family: ${FONT};
       display: flex;
-      align-items: center;
       justify-content: center;
+      align-items: center;
+      font-family: ${FONT};
       background-image: url(${image});
-      border: none;
-      color: white;
-      padding: 5px;
-      width: 200px;
-      height: 150px;
+      background-repeat: no-repeat;
+      background-position:center;
       text-align: center;
       font-size: 20px;
+      color: ${WHITISH};
+      font-weight: bold;
+      letter-spacing: 3px;
+      border: 10px solid ${BLUEISH};
+      width: 275px;
+      height: 275px;
     }
     .button:hover {
-      opacity: 0.8;
+      opacity: 0.9;
     }
   `
 
   function template () {
     return yo`
       <div class='${title}'>
-        <div class='hide ${css.button}' onclick=${_=>routes(`/${route}`)(data)}>
+        <div class='square ${css.button}' onclick=${_=>routes(`/${route}`)(data)}>
           <div class='${title}'>${title}</div>
-          <div class='show'></div>
+          <div class='square'></div>
         </div>
       </div>
     `
