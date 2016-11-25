@@ -1817,11 +1817,11 @@ var BLUEISH = '#5CA4A9'
 var GREYISH = '#9BC1BC'
 var REDISH = '#ED6A5A'
 var SHADOW = '#E6EBE0'
-
+var BLACK = 'black'
 /* ---------------------------------------------------------------------------------------
 Credit for cat pictures: @maxogden #catmapper https://github.com/maxogden/cats
 ----------------------------------------------------------------------------------------*/
-var imageLogo            = 'https://raw.githubusercontent.com/maxogden/cats/master/catmapper/312041054429712769_291987.jpg'
+var imageBasic           = 'https://scontent-tpe1-1.xx.fbcdn.net/v/t1.0-9/15095009_10154979597727454_1298834353251634175_n.jpg?oh=450a27fd9fad557ef157706ceb98ae47&oe=58B6178E'
 var imageVisa            = 'https://raw.githubusercontent.com/maxogden/cats/master/catmapper/139757677862894755_13147478.jpg'
 var imageLiving          = 'https://raw.githubusercontent.com/maxogden/cats/master/catmapper/222843201611284148_13147478.jpg'
 var imagePower           = 'https://raw.githubusercontent.com/maxogden/cats/master/catmapper/229211733215330264_13147478.jpg'
@@ -1867,43 +1867,52 @@ function startPage(data) {
     .logo {
       background-color: ${BLUEISH};
       text-shadow: -1px 0 ${WHITISH}, 0 1px ${WHITISH}, 1px 0 ${WHITISH}, 0 -1px ${WHITISH};
-      font-size: 30px;
+      font-size: 40px;
+      color: ${WHITISH};
     }
     .button {
-      font-size: 20px;
-      background-color: ${REDISH};
-      opacity: 0.9;
+      font-size: 28px;
+      color: ${WHITISH};
+      text-shadow: -1px 0 ${WHITISH}, 0 1px ${WHITISH}, 1px 0 ${WHITISH}, 0 -1px ${WHITISH};
+      background-image: url(${imageBasic});
+      background-repeat: no-repeat;
+      background-position:center;
     }
     .button, .logo {
+      border-radius: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
+      flex-direction: column;
       border: 10px solid ${BLUEISH};
-      color: ${WHITISH};
       font-weight: bold;
-      width: 275px;
-      height: 275px;
+      width: 300px;
+      height: 300px;
       text-align: center;
       text-decoration: none;
     }
-    .button:hover, .logo:hover {
-      opacity: 0.8;
+    .items {
+      width: 80%;
+      text-shadow: 0 0;
     }
-    .item {
+    .itemButton {
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 15px;
-      letter-spacing: 2px;
-      padding: 7px;
+      padding: 2%;
     }
-    .item a {
+    .itemButton a {
+      width: 100%;
+      color: ${WHITISH};
+      font-size: 18px;
+      background-color: ${REDISH};
+      padding: 4%;
+      border-radius: 2px;
       text-decoration: none;
-      font-size: 15px;
-      color: ${WHITISH}
+      opacity: 0.7;
     }
-    .item a:hover {
-      color: ${YELLOWISH}
+    .itemButton a:hover {
+      opacity: 0.9;
     }
   `
   /*------------------------------------------
@@ -1912,7 +1921,7 @@ function startPage(data) {
   function template (data) {
     return yo`
     		<div class='${css.wrapper}'>
-          <div class='${css.logo}'>Taipei guide for hackers</div>
+          <div class='${css.logo}'>Low budget Taipei for hackers</div>
           ${menuButtonComponent (data,'VISA','showVisa',imageVisa)}
           ${menuButtonComponent (data,'LIVING','showLiving',imageLiving)}
           ${menuButtonComponent (data,'TRANSPORTATION','showTransportation',imageTransportation)}
@@ -1984,7 +1993,7 @@ function showHideComponent (title,routeShow,routeHide) {
       var array = data[title]
       return array.map(function(x){
         return yo`
-        <div class='item ${css.item}'>
+        <div class='item ${css.itemButton}'>
           <a href='${x.link}'>${x.name}</a>
         </div>
         `
@@ -1994,7 +2003,7 @@ function showHideComponent (title,routeShow,routeHide) {
       var newEl = yo`
           <div class='${title}'>
             <div class='square ${css.button}' onclick=${_=>routes(routeHide)(data)}>
-              <div class='square'>${showHide.list(data)}</div>
+              <div class='square ${css.items}'>${showHide.list(data)}</div>
             </div>
           </div>
       `
@@ -2027,6 +2036,7 @@ function menuButtonComponent (data,title,route,image) {
       margin: 0px;
     }
     .button {
+      border-radius: 20px;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -2035,13 +2045,13 @@ function menuButtonComponent (data,title,route,image) {
       background-repeat: no-repeat;
       background-position:center;
       text-align: center;
-      font-size: 20px;
+      font-size: 28px;
       color: ${WHITISH};
       text-shadow: -1px 0 ${WHITISH}, 0 1px ${WHITISH}, 1px 0 ${WHITISH}, 0 -1px ${WHITISH};
-      letter-spacing: 3px;
+      font-weight: bold;
       border: 10px solid ${BLUEISH};
-      width: 275px;
-      height: 275px;
+      width: 300px;
+      height: 300px;
     }
     .button:hover {
       opacity: 0.9;
