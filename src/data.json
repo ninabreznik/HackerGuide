@@ -59,7 +59,7 @@
       "link": "https://www.facebook.com/groups/hackingday"
     },
     {
-      "name": "OpenLab Taipei",
+      "name": "WizardAmigos",
       "link": "https://www.facebook.com/events/191590444612523/?active_tab=discussion"
     }
   ],
@@ -77,25 +77,25 @@
       "link": "http://taiwaninfo.nat.gov.tw/ct.asp?xItem=173851&ctNode=103"
     }
   ],
-  "VEGAN": [
+  "VEGAN ON BUDGET": [
     {
-      "name": "Minder vegetarian",
-      "link": "https://www.facebook.com/minder.vegetarian/"
+      "name": "Bing Xian Noodles",
+      "link": "https://goo.gl/maps/MA3BWAuuXGq"
     },
     {
       "name": "Japanese burger (MOS)",
       "link": "http://www.mos.com.tw/menu/set_detail.aspx?id=M027"
     },
     {
-      "name": "Taiwan buffet",
+      "name": "Taiwanese buffet",
       "link": "https://fr.foursquare.com/v/%E7%9B%8A%E7%BE%8E%E6%96%B0%E6%A6%82%E5%BF%B5%E5%8F%B0%E5%BC%8F%E6%96%99%E7%90%86%E8%87%AA%E5%8A%A9%E9%A4%90/4e4b46c214958c3abfa63d9b"
     },
     {
-      "name": "Night market",
-      "link": "https://www.englishintaiwan.com/shopping-in-taiwan/taipei-night-markets"
+      "name": "Buddhist veggie place",
+      "link": "http://bit.ly/2gBHcHt"
     }
   ],
-  "LIVING": [
+  "CO-LIVING": [
     {
       "name": "Digi Quarters",
       "link": "http://www.digiquarters.com/"
@@ -111,28 +111,8 @@
   ],
   "CAFÉS": [
     {
-      "name": "Yaboo",
-      "link": "https://www.facebook.com/yaboo.lalala/"
-    },
-    {
-      "name": "Mr. Cat Friend",
-      "link": "https://foursquare.com/v/%E8%B2%93%E5%92%AA%E5%85%88%E7%94%9F%E7%9A%84%E6%9C%8B%E5%8F%8B/4df4931eaeb7170aa2f4eac4"
-    },
-    {
-      "name": "Toast Chat",
-      "link": "https://www.facebook.com/ToastChat/"
-    },
-    {
-      "name": "Cafe Niau",
-      "link": "https://www.facebook.com/MuNiau/"
-    },
-    {
-      "name": "Genki Cat",
-      "link": "https://www.facebook.com/genkicat/"
-    },
-    {
-      "name": "Cafe and Cats 1998",
-      "link": "https://www.facebook.com/nekocafe1998/"
+      "name": "Check the map",
+      "link": "https://gist.github.com/maxogden/74476ae567142d96078c/#file-catcafes-geojson"
     }
   ]
 }
