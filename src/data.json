@@ -77,7 +77,7 @@
       "link": "http://taiwaninfo.nat.gov.tw/ct.asp?xItem=173851&ctNode=103"
     }
   ],
-  "VEGAN ON BUDGET": [
+  "VEGETARIAN": [
     {
       "name": "Bing Xian Noodles",
       "link": "https://goo.gl/maps/MA3BWAuuXGq"
@@ -109,10 +109,18 @@
       "link": "https://www.facebook.com/TheMeetingPlaceTaipei/?rf=244233855682531"
     }
   ],
-  "CAFÉS": [
+  "SPACES": [
     {
-      "name": "Check the map",
+      "name": "Cat cafés",
       "link": "https://gist.github.com/maxogden/74476ae567142d96078c/#file-catcafes-geojson"
+    },
+    {
+      "name": "Creative park",
+      "link": "http://www.huashan1914.com/en/story.html"
+    },
+    {
+      "name": "Electronic market",
+      "link": "https://en.wikipedia.org/wiki/Guang_Hua_Digital_Plaza"
     }
   ]
 }

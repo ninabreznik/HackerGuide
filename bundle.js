@@ -1787,12 +1787,12 @@ module.exports = [
 'use strict';
 
 var _templateObject = _taggedTemplateLiteral(['<link href=', ' rel=\'stylesheet\' type=\'text/css\'>'], ['<link href=', ' rel=\'stylesheet\' type=\'text/css\'>']),
-    _templateObject2 = _taggedTemplateLiteral(['\n    .wrapper {\n      background-color: ', ';\n      display: flex;\n      flex-wrap: wrap;\n      justify-content: center;\n      font-family: ', ';\n    }\n    .logo {\n      background-color: ', ';\n      text-shadow: -1px 0 ', ', 0 1px ', ', 1px 0 ', ', 0 -1px ', ';\n      font-size: 40px;\n      color: ', ';\n    }\n    .button {\n      font-size: 28px;\n      color: ', ';\n      text-shadow: -1px 0 ', ', 0 1px ', ', 1px 0 ', ', 0 -1px ', ';\n      background-image: url(', ');\n      background-repeat: no-repeat;\n      background-position:center;\n    }\n    .button, .logo {\n      border-radius: 12px;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      flex-direction: column;\n      border: 10px solid ', ';\n      font-weight: bold;\n      width: 300px;\n      height: 300px;\n      text-align: center;\n      text-decoration: none;\n    }\n    .items {\n      width: 80%;\n      text-shadow: 0 0;\n    }\n    .itemButton {\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      padding: 2%;\n    }\n    .itemButton a {\n      width: 100%;\n      color: ', ';\n      font-size: 18px;\n      background-color: ', ';\n      padding: 4%;\n      border-radius: 2px;\n      text-decoration: none;\n      opacity: 0.7;\n    }\n    .itemButton a:hover {\n      opacity: 0.9;\n    }\n  '], ['\n    .wrapper {\n      background-color: ', ';\n      display: flex;\n      flex-wrap: wrap;\n      justify-content: center;\n      font-family: ', ';\n    }\n    .logo {\n      background-color: ', ';\n      text-shadow: -1px 0 ', ', 0 1px ', ', 1px 0 ', ', 0 -1px ', ';\n      font-size: 40px;\n      color: ', ';\n    }\n    .button {\n      font-size: 28px;\n      color: ', ';\n      text-shadow: -1px 0 ', ', 0 1px ', ', 1px 0 ', ', 0 -1px ', ';\n      background-image: url(', ');\n      background-repeat: no-repeat;\n      background-position:center;\n    }\n    .button, .logo {\n      border-radius: 12px;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      flex-direction: column;\n      border: 10px solid ', ';\n      font-weight: bold;\n      width: 300px;\n      height: 300px;\n      text-align: center;\n      text-decoration: none;\n    }\n    .items {\n      width: 80%;\n      text-shadow: 0 0;\n    }\n    .itemButton {\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      padding: 2%;\n    }\n    .itemButton a {\n      width: 100%;\n      color: ', ';\n      font-size: 18px;\n      background-color: ', ';\n      padding: 4%;\n      border-radius: 2px;\n      text-decoration: none;\n      opacity: 0.7;\n    }\n    .itemButton a:hover {\n      opacity: 0.9;\n    }\n  ']),
+    _templateObject2 = _taggedTemplateLiteral(['\n    .wrapper {\n      background-color: ', ';\n      display: flex;\n      flex-wrap: wrap;\n      justify-content: center;\n      font-family: ', ';\n    }\n    .logo {\n      background-color: ', ';\n      text-shadow: -1px 0 ', ', 0 1px ', ', 1px 0 ', ', 0 -1px ', ';\n      font-size: 40px;\n      color: ', ';\n    }\n    .button {\n      font-size: 28px;\n      color: ', ';\n      text-shadow: -1px 0 ', ', 0 1px ', ', 1px 0 ', ', 0 -1px ', ';\n      background-image: url(', ');\n      background-repeat: no-repeat;\n      background-position:center;\n    }\n    .button, .logo {\n      border-radius: 12px;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      flex-direction: column;\n      border: 10px solid ', ';\n      font-weight: bold;\n      width: 300px;\n      height: 300px;\n      text-align: center;\n      text-decoration: none;\n    }\n    .button:hover, .logo:hover {\n      opacity: 0.8;\n    }\n    .items {\n      width: 80%;\n      text-shadow: 0 0;\n    }\n    .itemButton {\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      padding: 2%;\n    }\n    .itemButton a {\n      width: 100%;\n      color: ', ';\n      font-size: 18px;\n      background-color: ', ';\n      padding: 4%;\n      border-radius: 2px;\n      text-decoration: none;\n    }\n    .itemButton a:hover {\n      opacity: 0.8;\n    }\n  '], ['\n    .wrapper {\n      background-color: ', ';\n      display: flex;\n      flex-wrap: wrap;\n      justify-content: center;\n      font-family: ', ';\n    }\n    .logo {\n      background-color: ', ';\n      text-shadow: -1px 0 ', ', 0 1px ', ', 1px 0 ', ', 0 -1px ', ';\n      font-size: 40px;\n      color: ', ';\n    }\n    .button {\n      font-size: 28px;\n      color: ', ';\n      text-shadow: -1px 0 ', ', 0 1px ', ', 1px 0 ', ', 0 -1px ', ';\n      background-image: url(', ');\n      background-repeat: no-repeat;\n      background-position:center;\n    }\n    .button, .logo {\n      border-radius: 12px;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      flex-direction: column;\n      border: 10px solid ', ';\n      font-weight: bold;\n      width: 300px;\n      height: 300px;\n      text-align: center;\n      text-decoration: none;\n    }\n    .button:hover, .logo:hover {\n      opacity: 0.8;\n    }\n    .items {\n      width: 80%;\n      text-shadow: 0 0;\n    }\n    .itemButton {\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      padding: 2%;\n    }\n    .itemButton a {\n      width: 100%;\n      color: ', ';\n      font-size: 18px;\n      background-color: ', ';\n      padding: 4%;\n      border-radius: 2px;\n      text-decoration: none;\n    }\n    .itemButton a:hover {\n      opacity: 0.8;\n    }\n  ']),
     _templateObject3 = _taggedTemplateLiteral(['\n    \t\t<div class=\'', '\'>\n          <div class=\'', '\'>Low budget Taipei for hackers</div>\n          ', '\n          ', '\n          ', '\n          ', '\n          ', '\n          ', '\n          ', '\n          ', '\n          ', '\n          ', '\n        </div>\n    '], ['\n    \t\t<div class=\'', '\'>\n          <div class=\'', '\'>Low budget Taipei for hackers</div>\n          ', '\n          ', '\n          ', '\n          ', '\n          ', '\n          ', '\n          ', '\n          ', '\n          ', '\n          ', '\n        </div>\n    ']),
     _templateObject4 = _taggedTemplateLiteral(['\n        <div class=\'item ', '\'>\n          <a href=\'', '\'>', '</a>\n        </div>\n        '], ['\n        <div class=\'item ', '\'>\n          <a href=\'', '\'>', '</a>\n        </div>\n        ']),
     _templateObject5 = _taggedTemplateLiteral(['\n          <div class=\'', '\'>\n            <div class=\'square ', '\' onclick=', '>\n              <div class=\'square ', '\'>', '</div>\n            </div>\n          </div>\n      '], ['\n          <div class=\'', '\'>\n            <div class=\'square ', '\' onclick=', '>\n              <div class=\'square ', '\'>', '</div>\n            </div>\n          </div>\n      ']),
     _templateObject6 = _taggedTemplateLiteral(['\n        <div class=\'', '\'>\n          <div class=\'square ', '\' onclick=', '>\n            <div class=\'', '\'>', '</div>\n            <div class=\'square\'></div>\n          </div>\n        </div>\n      '], ['\n        <div class=\'', '\'>\n          <div class=\'square ', '\' onclick=', '>\n            <div class=\'', '\'>', '</div>\n            <div class=\'square\'></div>\n          </div>\n        </div>\n      ']),
-    _templateObject7 = _taggedTemplateLiteral(['\n    body {\n      margin: 0px;\n    }\n    .button {\n      border-radius: 20px;\n      display: flex;\n      justify-content: center;\n      align-items: center;\n      font-family: ', ';\n      background-image: url(', ');\n      background-repeat: no-repeat;\n      background-position:center;\n      text-align: center;\n      font-size: 28px;\n      color: ', ';\n      text-shadow: -1px 0 ', ', 0 1px ', ', 1px 0 ', ', 0 -1px ', ';\n      font-weight: bold;\n      border: 10px solid ', ';\n      width: 300px;\n      height: 300px;\n    }\n    .button:hover {\n      opacity: 0.9;\n    }\n  '], ['\n    body {\n      margin: 0px;\n    }\n    .button {\n      border-radius: 20px;\n      display: flex;\n      justify-content: center;\n      align-items: center;\n      font-family: ', ';\n      background-image: url(', ');\n      background-repeat: no-repeat;\n      background-position:center;\n      text-align: center;\n      font-size: 28px;\n      color: ', ';\n      text-shadow: -1px 0 ', ', 0 1px ', ', 1px 0 ', ', 0 -1px ', ';\n      font-weight: bold;\n      border: 10px solid ', ';\n      width: 300px;\n      height: 300px;\n    }\n    .button:hover {\n      opacity: 0.9;\n    }\n  ']),
+    _templateObject7 = _taggedTemplateLiteral(['\n    body {\n      margin: 0px;\n    }\n    .button {\n      border-radius: 20px;\n      display: flex;\n      justify-content: center;\n      align-items: center;\n      font-family: ', ';\n      background-image: url(', ');\n      background-repeat: no-repeat;\n      background-position:center;\n      text-align: center;\n      font-size: 28px;\n      color: ', ';\n      text-shadow: -1px 0 ', ', 0 1px ', ', 1px 0 ', ', 0 -1px ', ';\n      font-weight: bold;\n      letter-spacing: 3px;\n      border: 10px solid ', ';\n      width: 300px;\n      height: 300px;\n    }\n    .button:hover {\n      opacity: 0.9;\n    }\n  '], ['\n    body {\n      margin: 0px;\n    }\n    .button {\n      border-radius: 20px;\n      display: flex;\n      justify-content: center;\n      align-items: center;\n      font-family: ', ';\n      background-image: url(', ');\n      background-repeat: no-repeat;\n      background-position:center;\n      text-align: center;\n      font-size: 28px;\n      color: ', ';\n      text-shadow: -1px 0 ', ', 0 1px ', ', 1px 0 ', ', 0 -1px ', ';\n      font-weight: bold;\n      letter-spacing: 3px;\n      border: 10px solid ', ';\n      width: 300px;\n      height: 300px;\n    }\n    .button:hover {\n      opacity: 0.9;\n    }\n  ']),
     _templateObject8 = _taggedTemplateLiteral(['\n      <div class=\'', '\'>\n        <div class=\'square ', '\' onclick=', '>\n          <div class=\'', '\'>', '</div>\n          <div class=\'square\'></div>\n        </div>\n      </div>\n    '], ['\n      <div class=\'', '\'>\n        <div class=\'square ', '\' onclick=', '>\n          <div class=\'', '\'>', '</div>\n          <div class=\'square\'></div>\n        </div>\n      </div>\n    ']);
 
 function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
@@ -1807,7 +1807,6 @@ var router = require('_router');
 /*------------------------------------------
                 VARIABLES
 -------------------------------------------*/
-var STATE = 'hideCafes';
 var FONT = 'Ubuntu, sans-serif';
 var WHITISH = '#E6EBE0';
 var YELLOWISH = '#F4F1BB';
@@ -1828,8 +1827,8 @@ var imageTransportation = 'https://raw.githubusercontent.com/maxogden/cats/maste
 var imageMeetups = 'https://raw.githubusercontent.com/maxogden/cats/master/cat_photos/fbe98620432f11e19e4a12313813ffc0_7.png';
 var imageEasyCard = 'https://raw.githubusercontent.com/maxogden/cats/master/cat_photos/12a8d742be7f11e188131231381b5c25_7.png';
 var imageSport = 'https://raw.githubusercontent.com/maxogden/cats/master/catmapper/221619259085077562_13147478.jpg';
-var imageVegan = 'https://raw.githubusercontent.com/maxogden/cats/master/cat_photos/e66928da64d311e19e4a12313813ffc0_7.png';
-var imageCafes = 'https://raw.githubusercontent.com/maxogden/cats/master/catmapper/229738316648856704_13147478.jpg';
+var imageSpaces = 'https://raw.githubusercontent.com/maxogden/cats/master/catmapper/229738316648856704_13147478.jpg';
+var imageVegetarian = 'https://raw.githubusercontent.com/maxogden/cats/master/cat_photos/e66928da64d311e19e4a12313813ffc0_7.png';
 /*------------------------------------------
                 FONT
 -------------------------------------------*/
@@ -1856,7 +1855,7 @@ var css = csjs(_templateObject2, BLUEISH, FONT, BLUEISH, WHITISH, WHITISH, WHITI
               HTML
 -------------------------------------------*/
 function template(data) {
-  return yo(_templateObject3, css.wrapper, css.logo, menuButtonComponent(data, 'VISA', 'showVisa', imageVisa), menuButtonComponent(data, 'LIVING', 'showLiving', imageLiving), menuButtonComponent(data, 'TRANSPORTATION', 'showTransportation', imageTransportation), menuButtonComponent(data, 'POWER', 'showPower', imagePower), menuButtonComponent(data, 'MEETUPS', 'showMeetups', imageMeetups), menuButtonComponent(data, 'SPORT', 'showSport', imageSport), menuButtonComponent(data, 'SIM', 'showSIM', imageSIM), menuButtonComponent(data, 'EASYCARD', 'showEasyCard', imageEasyCard), menuButtonComponent(data, 'VEGAN', 'showVegan', imageVegan), menuButtonComponent(data, 'CAFÉS', 'showCafes', imageCafes));
+  return yo(_templateObject3, css.wrapper, css.logo, menuButtonComponent(data, 'VISA', 'showVisa', imageVisa), menuButtonComponent(data, 'TRANSPORTATION', 'showTransportation', imageTransportation), menuButtonComponent(data, 'POWER', 'showPower', imagePower), menuButtonComponent(data, 'MEETUPS', 'showMeetups', imageMeetups), menuButtonComponent(data, 'SPORT', 'showSport', imageSport), menuButtonComponent(data, 'SIM', 'showSIM', imageSIM), menuButtonComponent(data, 'EASYCARD', 'showEasyCard', imageEasyCard), menuButtonComponent(data, 'SPACES', 'showSpaces', imageSpaces), menuButtonComponent(data, 'VEGETARIAN', 'showVegetarian', imageVegetarian), menuButtonComponent(data, 'LIVING', 'showLiving', imageLiving));
 }
 
 /*------------------------------------------
@@ -1864,17 +1863,13 @@ function template(data) {
 -------------------------------------------*/
 var routes = router();
 
-var cafes = showHideComponent('CAFÉS', '/showCafes', '/hideCafes');
-routes('/showCafes', cafes.show);
-routes('/hideCafes', cafes.hide);
+var spaces = showHideComponent('SPACES', '/showSpaces', '/hideSpaces');
+routes('/showSpaces', spaces.show);
+routes('/hideSpaces', spaces.hide);
 
 var visa = showHideComponent('VISA', '/showVisa', '/hideVisa');
 routes('/showVisa', visa.show);
 routes('/hideVisa', visa.hide);
-
-var living = showHideComponent('LIVING', '/showLiving', '/hideLiving');
-routes('/showLiving', living.show);
-routes('/hideLiving', living.hide);
 
 var power = showHideComponent('POWER', '/showPower', '/hidePower');
 routes('/showPower', power.show);
@@ -1900,9 +1895,13 @@ var sport = showHideComponent('SPORT', '/showSport', '/hideSport');
 routes('/showSport', sport.show);
 routes('/hideSport', sport.hide);
 
-var vegan = showHideComponent('VEGAN', '/showVegan', '/hideVegan');
-routes('/showVegan', vegan.show);
-routes('/hideVegan', vegan.hide);
+var vegetarian = showHideComponent('VEGETARIAN', '/showVegetarian', '/hideVegetarian');
+routes('/showVegetarian', vegetarian.show);
+routes('/hideVegetarian', vegetarian.hide);
+
+var living = showHideComponent('LIVING', '/showLiving', '/hideLiving');
+routes('/showLiving', living.show);
+routes('/hideLiving', living.hide);
 
 /*------------------------------------------
                  COMPONENTS

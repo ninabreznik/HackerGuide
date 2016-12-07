@@ -8,7 +8,6 @@ var router = require('_router')
 /*------------------------------------------
                 VARIABLES
 -------------------------------------------*/
-var STATE = 'hideCafes'
 var FONT  = 'Ubuntu, sans-serif'
 var WHITISH = '#E6EBE0'
 var YELLOWISH = '#F4F1BB'
@@ -29,8 +28,8 @@ var imageTransportation  = 'https://raw.githubusercontent.com/maxogden/cats/mast
 var imageMeetups         = 'https://raw.githubusercontent.com/maxogden/cats/master/cat_photos/fbe98620432f11e19e4a12313813ffc0_7.png'
 var imageEasyCard        = 'https://raw.githubusercontent.com/maxogden/cats/master/cat_photos/12a8d742be7f11e188131231381b5c25_7.png'
 var imageSport           = 'https://raw.githubusercontent.com/maxogden/cats/master/catmapper/221619259085077562_13147478.jpg'
-var imageVegan           = 'https://raw.githubusercontent.com/maxogden/cats/master/cat_photos/e66928da64d311e19e4a12313813ffc0_7.png'
-var imageCafes           = 'https://raw.githubusercontent.com/maxogden/cats/master/catmapper/229738316648856704_13147478.jpg'
+var imageSpaces          = 'https://raw.githubusercontent.com/maxogden/cats/master/catmapper/229738316648856704_13147478.jpg'
+var imageVegetarian      = 'https://raw.githubusercontent.com/maxogden/cats/master/cat_photos/e66928da64d311e19e4a12313813ffc0_7.png'
 /*------------------------------------------
                 FONT
 -------------------------------------------*/
@@ -90,6 +89,9 @@ function startPage(data) {
       text-align: center;
       text-decoration: none;
     }
+    .button:hover, .logo:hover {
+      opacity: 0.8;
+    }
     .items {
       width: 80%;
       text-shadow: 0 0;
@@ -108,10 +110,9 @@ function startPage(data) {
       padding: 4%;
       border-radius: 2px;
       text-decoration: none;
-      opacity: 0.7;
     }
     .itemButton a:hover {
-      opacity: 0.9;
+      opacity: 0.8;
     }
   `
   /*------------------------------------------
@@ -122,15 +123,15 @@ function startPage(data) {
     		<div class='${css.wrapper}'>
           <div class='${css.logo}'>Low budget Taipei for hackers</div>
           ${menuButtonComponent (data,'VISA','showVisa',imageVisa)}
-          ${menuButtonComponent (data,'LIVING','showLiving',imageLiving)}
           ${menuButtonComponent (data,'TRANSPORTATION','showTransportation',imageTransportation)}
           ${menuButtonComponent (data,'POWER','showPower',imagePower)}
           ${menuButtonComponent (data,'MEETUPS','showMeetups',imageMeetups)}
           ${menuButtonComponent (data,'SPORT','showSport',imageSport)}
           ${menuButtonComponent (data,'SIM','showSIM',imageSIM)}
           ${menuButtonComponent (data,'EASYCARD','showEasyCard',imageEasyCard)}
-          ${menuButtonComponent (data,'VEGAN','showVegan',imageVegan)}
-          ${menuButtonComponent (data,'CAFÉS','showCafes',imageCafes)}
+          ${menuButtonComponent (data,'SPACES','showSpaces',imageSpaces)}
+          ${menuButtonComponent (data,'VEGETARIAN','showVegetarian',imageVegetarian)}
+          ${menuButtonComponent (data,'LIVING','showLiving',imageLiving)}
         </div>
     `
 	}
@@ -142,17 +143,13 @@ function startPage(data) {
 -------------------------------------------*/
 var routes = router()
 
-var cafes = showHideComponent('CAFÉS','/showCafes', '/hideCafes')
-routes('/showCafes', cafes.show)
-routes('/hideCafes', cafes.hide)
+var spaces = showHideComponent('SPACES','/showSpaces', '/hideSpaces')
+routes('/showSpaces', spaces.show)
+routes('/hideSpaces', spaces.hide)
 
 var visa = showHideComponent('VISA','/showVisa', '/hideVisa')
 routes('/showVisa', visa.show)
 routes('/hideVisa', visa.hide)
-
-var living = showHideComponent('LIVING','/showLiving', '/hideLiving')
-routes('/showLiving', living.show)
-routes('/hideLiving', living.hide)
 
 var power = showHideComponent('POWER','/showPower', '/hidePower')
 routes('/showPower', power.show)
@@ -178,9 +175,14 @@ var sport = showHideComponent('SPORT','/showSport', '/hideSport')
 routes('/showSport', sport.show)
 routes('/hideSport', sport.hide)
 
-var vegan = showHideComponent('VEGAN','/showVegan', '/hideVegan')
-routes('/showVegan', vegan.show)
-routes('/hideVegan', vegan.hide)
+var vegetarian = showHideComponent('VEGETARIAN','/showVegetarian', '/hideVegetarian')
+routes('/showVegetarian', vegetarian.show)
+routes('/hideVegetarian', vegetarian.hide)
+
+var living = showHideComponent('LIVING','/showLiving', '/hideLiving')
+routes('/showLiving', living.show)
+routes('/hideLiving', living.hide)
+
 
 
 /*------------------------------------------
@@ -248,6 +250,7 @@ function menuButtonComponent (data,title,route,image) {
       color: ${WHITISH};
       text-shadow: -1px 0 ${WHITISH}, 0 1px ${WHITISH}, 1px 0 ${WHITISH}, 0 -1px ${WHITISH};
       font-weight: bold;
+      letter-spacing: 3px;
       border: 10px solid ${BLUEISH};
       width: 300px;
       height: 300px;
