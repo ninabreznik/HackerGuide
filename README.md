@@ -1,6 +1,6 @@
 # Low budget Taipei for hackers web app
 
-Little fun made in Taiwan while organizing code camps with [WizardAmigos](http://app.wizardamigos.com) :) 
+🇹🇼 Little fun made in Taiwan while organizing code camps with [WizardAmigos](http://app.wizardamigos.com) :) 
 
 ![Taipei 101](https://farm3.staticflickr.com/2839/11467975375_b5285ed9ab_z.jpg)
 <sub>Credit: <a href="https://flic.kr/p/itonxn" target="_blank">Antonio Tajuelo</a>
