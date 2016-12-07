@@ -123,15 +123,15 @@ function startPage(data) {
     		<div class='${css.wrapper}'>
           <div class='${css.logo}'>Low budget Taipei for hackers</div>
           ${menuButtonComponent (data,'VISA','showVisa',imageVisa)}
-          ${menuButtonComponent (data,'TRANSPORTATION','showTransportation',imageTransportation)}
           ${menuButtonComponent (data,'POWER','showPower',imagePower)}
-          ${menuButtonComponent (data,'MEETUPS','showMeetups',imageMeetups)}
-          ${menuButtonComponent (data,'SPORT','showSport',imageSport)}
           ${menuButtonComponent (data,'SIM','showSIM',imageSIM)}
-          ${menuButtonComponent (data,'EASYCARD','showEasyCard',imageEasyCard)}
-          ${menuButtonComponent (data,'SPACES','showSpaces',imageSpaces)}
-          ${menuButtonComponent (data,'VEGETARIAN','showVegetarian',imageVegetarian)}
           ${menuButtonComponent (data,'LIVING','showLiving',imageLiving)}
+          ${menuButtonComponent (data,'TRANSPORTATION','showTransportation',imageTransportation)}
+          ${menuButtonComponent (data,'EASYCARD','showEasyCard',imageEasyCard)}
+          ${menuButtonComponent (data,'VEGETARIAN','showVegetarian',imageVegetarian)}
+          ${menuButtonComponent (data,'MEETUPS','showMeetups',imageMeetups)}
+          ${menuButtonComponent (data,'SPACES','showSpaces',imageSpaces)}
+          ${menuButtonComponent (data,'SPORT','showSport',imageSport)}
         </div>
     `
 	}
